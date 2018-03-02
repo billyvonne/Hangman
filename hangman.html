@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Hangman Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Reset CSS-->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
+    <!--Link CSS-->
+    <link rel="stylesheet" type="text/css" href="assets/css/hangman.css" />
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Hangman Game</h1>
+            <h3>Disney Villians</h3>
+        </header>
+        
+        <div class="underscores">
+            <h3 id="wordToGuess">____________</h3>
+        </div>
+        
+        <div class="wrongGuess">
+            Wrong Guesses: <span id="wrongGuesses"></span>
+        </div>
+
+        <div>
+            Guesses Left: <span id="numGuesses">9</span>
+        </div>
+
+        <div>
+            Wins: <span id="winCounter">0</span>
+        </div>
+
+        <div>
+            Losses: <span id="lossCounter">0</span>
+        </div>
+        
+    </div>
+    
+    <!--Link JS-->
+    <script src="assets/js/hangman.js"></script>
+</body>
+
+</html>

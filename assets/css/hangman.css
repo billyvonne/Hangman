@@ -33,3 +33,30 @@ header {
     height: 150px;
     width: 80%;
 }
+
+#numGuess {
+    border: 2px dotted blueviolet;
+    font-size: 60px;
+    text-align: center;
+    margin: 15px auto;
+    height: 150px;
+    width: 80%;
+}
+
+#winCounter {
+    border: 2px dotted blueviolet;
+    font-size: 60px;
+    text-align: center;
+    margin: 15px auto;
+    height: 150px;
+    width: 80%;
+}
+
+#lossCounter {
+    border: 2px dotted blueviolet;
+    font-size: 60px;
+    text-align: center;
+    margin: 15px auto;
+    height: 150px;
+    width: 80%;
+}

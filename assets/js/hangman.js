@@ -1,23 +1,27 @@
 //DECLARE THOSE VARS
 //----------------------------
 // The wordbank
-var words = ["Captain Hook", "Maleficent", "Scar", "Jafar", "Gaston", "Cruella de Vil", "Ursula", "Queen of Hearts", "Chernabog", "Oogie Boogie", "Dr. Facilier"];
+var words = ["Maleficent", "Scar", "Jafar", "Gaston", "Ursula", "Chernabog"];
 // Word that player is guessing
-var chosenWord = "";
+var chosenWord = [];
 // Letters in word(number of underscores for each letter)
 var underScore = [];
+
+var wrongGuess =[];
 // Records how many times a letter can be pressed
 var oneLetter = ['a','b','c','d','e','f',
                     'g','h','i','j','k',
                     'l','m','n','o','p',
                     'q','r','s','t','u',
                     'v','w','x','y','z'];
+
+
 // Blanks in a word
 var numBlanks = 0;
 // Blanks and Successful guesses
 var blankSuccess =[];
 // Wrong guesses
-var wrongGuess =[];
+
 //Game counterssss
 var wins = 0;
 var lose = 0;
@@ -38,8 +42,8 @@ function reset () {
     letterGuessed = 0;
     rightGuess = 0;
     guessesLeft = 9;
-    wrongGuess = [];
-    blankSuccess = [];
+    wrongGuess = [""];
+    blankSuccess = [""];
     var oneLetter = ['a','b','c','d','e','f',
                     'g','h','i','j','k',
                     'l','m','n','o','p',
@@ -52,40 +56,37 @@ function reset () {
 
 function startGame() {
     // Picks randomly from words
-    chosenWord = words[Math.floor(Math.random() * words.length)];
-    // Splits chosen word into individual letters
-    underScore = chosenWord.split('_');
-    // Ready for underscores
-    numBlanks = underScore.length;
+    chosenWord = words[Math.floor(Math.random() * words.length)].split('');
+
+    //Get underscores
+    for(var i = 0; i < chosenWord.length; i++) {
+        underScore.push('_');
+    }
 
     // Resets the game
     letterGuessed = 0;
     rightGuess = 0;
     guessesLeft = 9;
-    wrongGuess = [];
-    blankSuccess = [];
+    wrongGuess = [""];
+    blankSuccess = [""];
     var oneLetter = ['a','b','c','d','e','f',
                     'g','h','i','j','k',
                     'l','m','n','o','p',
                     'q','r','s','t','u',
                     'v','w','x','y','z'];
     
-    //Get underscores
-    for(var i = 0; i < numBlanks; i++) {
-        blankSuccess.push('_');
-        document.getElementById('wordToGuess').innerHTML = blankSuccess;
-    }
+
 
     //Changes HTML
-    document.getElementById('wordToGuess').innerHTML = blankSuccess.join(' ');
+    document.getElementById('wordToGuess').textContent = underScore.join('');
     document.getElementById('numGuesses').innerHTML = guessesLeft;
     document.getElementById('winCounter').innerHTML = wins;
     document.getElementById('lossCounter').innerHTML = lose;
-    document.getElementById('wronGuesses').innerHTML = wrongGuess;
-    console.log(choosenWord);
+    document.getElementById('wrongGuesses').innerHTML = wrongGuess;
+    console.log(chosenWord);
 	console.log(underScore);
 	console.log(numBlanks);
-	console.log(blankSuccesses);
+	console.log(blankSuccess);
 }
 
 function compareLetters(userKey) {
@@ -142,7 +143,7 @@ startGame();
 
 document.onkeyup = function(event) {
     test = true;
-    var letterGuessed = eveny.key;
+    var letterGuessed = events.key;
     for(var i = 0; i < oneLetter.length; i++) {
         if(letterGuessed === oneLetter[i] && test === true) {
             var splicedWord = oneLetter.splice(i,1);
